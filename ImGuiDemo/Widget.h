@@ -8,12 +8,14 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_internal.h"
 
+#include  <GL/glew.h>
 #include  <GLFW/glfw3.h>
 
 class Widget {
 
 public:
 	GLFWwindow* CreateWindows(int width, int height, const char* title, GLFWmonitor* monitor, GLFWwindow* window);
+	void WindowSetting(int width, int height);
 
 	void RunWidget();
 

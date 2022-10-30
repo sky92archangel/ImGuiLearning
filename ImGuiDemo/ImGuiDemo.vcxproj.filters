@@ -81,4 +81,14 @@
       <Filter>API\ImGui</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Fonts\msyh.ttc">
+      <Filter>API\ImGui</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Fonts\simhei.ttf">
+      <Filter>API\ImGui</Filter>
+    </Font>
+  </ItemGroup>
 </Project>
