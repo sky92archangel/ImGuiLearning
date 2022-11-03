@@ -124,7 +124,7 @@ void Widget::RunWidget()
 		//mygui.DrawHyperGUI();
 
 		mygui.GetKeyBoardGUI();
-
+		mygui.BasicDemoGUI();
 		mygui.DragGUI();
 	}
 	//============================================

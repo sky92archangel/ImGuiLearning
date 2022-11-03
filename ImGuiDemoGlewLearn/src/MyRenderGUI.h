@@ -12,9 +12,13 @@
 class MyGui {
 
 public:
+	std::string text = "unclicked";
+	char textbox[50] = "dfjs";
 	bool editor_Bool = false;
-	std::vector<int> dragList; 
-	std:: string dragItemTag = "DragButtonDemoTag";
+	std::vector<int> dragList;
+	std::string dragItemTag = "DragButtonDemoTag";
+
+	ImVec4 color;
 
 public:
 
@@ -42,7 +46,55 @@ public:
 	void WidgetTest() {
 		//window
 		ImGui::Begin("WidgetTest");
-		ImGui::Text("imgui window"); 
+
+		ImGui::Text("imgui window");
+
+		ImGui::End();
+	}
+
+	/// <summary>
+	/// »ù´¡¹¦ÄÜ
+	/// </summary>
+	void BasicDemoGUI() {
+		//window
+		ImGui::Begin("WidgetTest");
+
+		ImGui::Text("imgui window");
+		ImGui::Text(text.c_str());
+
+		//BUTTON
+		if (ImGui::Button("click me!")) {
+			text = "clicked";
+		}
+
+		//TEXTBOX
+		ImGui::InputText("text box", textbox, 50, IM_ARRAYSIZE(textbox));
+
+		//LIST
+		ImGui::ListBoxHeader("list title");
+		for (int i = 0; i < 12; i++)
+		{
+			if (ImGui::Selectable(std::to_string(i).c_str())) {
+				text = std::to_string(i);
+			}
+		}
+		ImGui::ListBoxFooter();
+
+		//COMBO
+		if (ImGui::BeginCombo("DDD", text.c_str())) {
+			for (int i = 0; i < 5; i++)
+			{
+				if (ImGui::Selectable(std::to_string(i).c_str())) {
+					text =std::to_string( i)  ;
+				}
+			}
+			ImGui::EndCombo();
+		}
+
+		//COLOR
+		ImGui::ColorEdit4("test color", (float*)&color,ImGuiColorEditFlags_::ImGuiColorEditFlags_AlphaBar);
+
+
 		ImGui::End();
 	}
 
@@ -64,7 +116,7 @@ public:
 	/// </summary>
 	void GetKeyBoardGUI() {
 
-		ImGui::Begin("GetKeyBoardGUI"); 
+		ImGui::Begin("GetKeyBoardGUI");
 		//ImGui::SetNextWindowSize(ImVec2(550, 680), ImGuiCond_FirstUseEver);
 		if (ImGui::IsKeyDown((ImGuiKey)562) && ImGui::IsItemHovered())
 		{
@@ -80,11 +132,11 @@ public:
 	/// </summary>
 	void DragGUI() {
 		ImGui::Begin("drag item source win");
-	 
+
 		for (int i = 0; i < 5; i++)
-		{		 
-			ImGui::Button(std::to_string(i).c_str() );
-			if (i+1<5)
+		{
+			ImGui::Button(std::to_string(i).c_str());
+			if (i + 1 < 5)
 			{
 				ImGui::SameLine();
 			}
@@ -94,28 +146,28 @@ public:
 				ImGui::SetDragDropPayload(dragItemTag.c_str(), &i, sizeof(int));
 				ImGui::EndDragDropSource();
 			}
-		}		 
+		}
 		ImGui::End();
 
 		//------------------------------
-		ImGui::Begin("drag item target win",0,ImGuiWindowFlags_::ImGuiWindowFlags_MenuBar);
+		ImGui::Begin("drag item target win", 0, ImGuiWindowFlags_::ImGuiWindowFlags_MenuBar);
 
 		if (ImGui::BeginDragDropTarget())
 		{
 			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload(dragItemTag.c_str())) {
 				dragList.push_back(*(const int*)payload->Data);
 			}
-			ImGui::EndDragDropTarget(); 
+			ImGui::EndDragDropTarget();
 		}
 
 		//std::cout << dragList.size()<<std::endl;
 		for (int i = 0; i < dragList.size(); i++)
-		{ 
+		{
 			ImGui::Button(std::to_string(i).c_str());
 			if (i + 1 < dragList.size())
 			{
 				ImGui::SameLine();
-			}		 
+			}
 		}
 
 		ImGui::End();
