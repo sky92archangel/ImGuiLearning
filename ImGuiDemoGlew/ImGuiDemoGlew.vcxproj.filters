@@ -53,12 +53,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Widget.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="PathHelper.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\_dependency_\imgui\1.88\imconfig.h">
       <Filter>API\ImGui</Filter>
     </ClInclude>
@@ -85,6 +79,12 @@
     </ClInclude>
     <ClInclude Include="..\_dependency_\imgui\1.88\imstb_truetype.h">
       <Filter>API\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathHelper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Widget.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

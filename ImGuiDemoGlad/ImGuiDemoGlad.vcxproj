@@ -160,8 +160,8 @@
     <ClInclude Include="..\_dependency_\imgui\1.88\imstb_rectpack.h" />
     <ClInclude Include="..\_dependency_\imgui\1.88\imstb_textedit.h" />
     <ClInclude Include="..\_dependency_\imgui\1.88\imstb_truetype.h" />
-    <ClInclude Include="PathHelper.h" />
-    <ClInclude Include="Widget.h" />
+    <ClInclude Include="src\PathHelper.h" />
+    <ClInclude Include="src\Widget.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\_dependency_\Fonts\msyh.ttc" />
