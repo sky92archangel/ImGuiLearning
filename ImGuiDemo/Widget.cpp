@@ -1,6 +1,15 @@
 #include "Widget.h"
+#include "PathHelper.h"
 
-
+/// <summary>
+/// 创建窗体
+/// </summary>
+/// <param name="width"></param>
+/// <param name="height"></param>
+/// <param name="title"></param>
+/// <param name="monitor"></param>
+/// <param name="window"></param>
+/// <returns></returns>
 GLFWwindow* Widget::CreateWindows(int width, int height, const char* title, GLFWmonitor* monitor, GLFWwindow* window)
 {
 
@@ -22,6 +31,12 @@ GLFWwindow* Widget::CreateWindows(int width, int height, const char* title, GLFW
 	return HWindow;
 }
 
+
+/// <summary>
+/// 设定窗体
+/// </summary>
+/// <param name="width"></param>
+/// <param name="height"></param>
 void Widget::WindowSetting(int width, int height)
 {
 	glewExperimental = true;
@@ -40,6 +55,9 @@ void Widget::WindowSetting(int width, int height)
 
 
 bool editor_Bool;
+/// <summary>
+/// 菜单栏demo
+/// </summary>
 void MenuBarTest() {
 
 	//create menu bar   菜单栏
@@ -57,37 +75,57 @@ void MenuBarTest() {
 	}
 	ImGui::EndMainMenuBar();
 }
+/// <summary>
+/// 最初text测试demo
+/// </summary>
 void WidgetTest() {
 	//window
 	ImGui::Begin("window");
 	ImGui::Text("imgui window");
 	ImGui::End();
 }
+
+/// <summary>
+/// imgui渲染
+/// </summary>
 void WidgetRender() {
 
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
+
+/// <summary>
+/// 运行imgui
+/// </summary>
 void Widget::RunWidget()
 {
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplGlfw_NewFrame();
 	ImGui::NewFrame();
+	//设定在主窗体上可停靠子窗体
+	ImGui::DockSpaceOverViewport();
+
+	//官方实例
 	ImGui::ShowDemoWindow();
-
-	
-
+	  
+	//由bool控制的imgui子窗
 	if (editor_Bool)
 	{
 		WidgetTest();
 	}
+	//运行 imgui菜单栏子窗
 	MenuBarTest();
-
-
+	 
+	//开始整体渲染
 	WidgetRender();
 
 }
 
+
+/// <summary>
+/// 初始化imgui
+/// </summary>
+/// <param name="HWindows"></param>
 void Widget::InitImGui(GLFWwindow* HWindows)
 {
 	IMGUI_CHECKVERSION();
@@ -96,14 +134,23 @@ void Widget::InitImGui(GLFWwindow* HWindows)
 	ImGuiIO& io = ImGui::GetIO();
 	(void)io;
 
+	//风格
 	ImGui::StyleColorsDark();
 	io.ConfigViewportsNoAutoMerge=true;
 
-	io.Fonts->AddFontFromFileTTF("Fonts/simhei.ttf",15.0f,NULL,io.Fonts->GetGlyphRangesChineseFull());
+	//io.Fonts->AddFontFromFileTTF("R:/Z_BACKUP_ORDER/_PROJECT_/CPP/ImGuiDemo/_dependency_/Fonts/simhei.ttf",15.0f,NULL,io.Fonts->GetGlyphRangesChineseFull());
+	//找到当前目录并定位字体文件
+	std::string fontPathStr = GetCWD() + "/Fonts/simhei.ttf";  
+	const char* fontPath = fontPathStr.c_str(); 
+	io.Fonts->AddFontFromFileTTF(fontPath,15.0f,NULL,io.Fonts->GetGlyphRangesChineseFull());
 	//io.Fonts->AddFontFromMemoryCompressedTTF
 	ImGui_ImplGlfw_InitForOpenGL(HWindows, true);
 	ImGui_ImplOpenGL3_Init("#version 330");
 
+	//docking setting
 	io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-	io.ConfigFlags |= ImGuiViewportFlags_NoDecoration; // ImGuiViewportFlags_NoDecration;
+	io.ConfigFlags |= ImGuiViewportFlags_NoDecoration;  
+	//io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+	//io.ConfigFlags |= ImGuiCol_DockingEmptyBg;
+
 }

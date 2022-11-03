@@ -16,13 +16,13 @@
 //#define GLFW_STATIC
 //#include  <GLFW/glfw3.h>
 
-#include "Widget.h"
+#include "Widget.h" 
 
  
 
 int main() {
 
-	printf("start\n");
+	printf("start\n");  
 
 
 	Widget windowFunc =  Widget::Widget();
@@ -71,3 +71,4 @@ int main() {
 
 	return 0;
 }
+

@@ -2,10 +2,14 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>R:\Z_BACKUP_ORDER\_PROJECT_\CPP\ImGuiDemo\Debug\ImGuiDemo.exe</FullPath>
+      <FullPath>R:\Z_BACKUP_ORDER\_PROJECT_\CPP\ImGuiDemo\ImGuiDemo\Win32\Debug\ImGuiDemo.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
-  <ContentFiles />
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>R:\Z_BACKUP_ORDER\_PROJECT_\CPP\ImGuiDemo\_dependency_\Fonts\simhei.ttf</FullPath>
+    </ContentFile>
+  </ContentFiles>
   <SatelliteDlls />
   <NonRecipeFileRefs />
 </Project>

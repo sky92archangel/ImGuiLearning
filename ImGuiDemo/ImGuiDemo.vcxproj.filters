@@ -19,6 +19,9 @@
     <Filter Include="API\ImGui">
       <UniqueIdentifier>{2830f7f9-a244-4236-8923-68da5b309c90}</UniqueIdentifier>
     </Filter>
+    <Filter Include="资源文件\Fonts">
+      <UniqueIdentifier>{0728d052-ac7c-426f-b136-dc72777208bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -27,25 +30,25 @@
     <ClCompile Include="Widget.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="API\imgui-1.88\imgui.cpp">
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui.cpp">
       <Filter>API\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="API\imgui-1.88\imgui_demo.cpp">
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_demo.cpp">
       <Filter>API\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="API\imgui-1.88\imgui_draw.cpp">
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_draw.cpp">
       <Filter>API\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="API\imgui-1.88\imgui_impl_glfw.cpp">
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_impl_glfw.cpp">
       <Filter>API\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="API\imgui-1.88\imgui_impl_opengl3.cpp">
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_impl_opengl3.cpp">
       <Filter>API\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="API\imgui-1.88\imgui_tables.cpp">
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_tables.cpp">
       <Filter>API\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="API\imgui-1.88\imgui_widgets.cpp">
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_widgets.cpp">
       <Filter>API\ImGui</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,42 +56,48 @@
     <ClInclude Include="Widget.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="API\imgui-1.88\imconfig.h">
+    <ClInclude Include="..\_dependency_\imgui\1.88\imconfig.h">
       <Filter>API\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="API\imgui-1.88\imgui.h">
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui.h">
       <Filter>API\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="API\imgui-1.88\imgui_impl_glfw.h">
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui_impl_glfw.h">
       <Filter>API\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="API\imgui-1.88\imgui_impl_opengl3.h">
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui_impl_opengl3.h">
       <Filter>API\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="API\imgui-1.88\imgui_internal.h">
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui_impl_opengl3_loader.h">
       <Filter>API\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="API\imgui-1.88\imstb_rectpack.h">
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui_internal.h">
       <Filter>API\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="API\imgui-1.88\imstb_textedit.h">
+    <ClInclude Include="..\_dependency_\imgui\1.88\imstb_rectpack.h">
       <Filter>API\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="API\imgui-1.88\imstb_truetype.h">
+    <ClInclude Include="..\_dependency_\imgui\1.88\imstb_textedit.h">
       <Filter>API\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="API\imgui-1.88\imgui_impl_opengl3_loader.h">
+    <ClInclude Include="..\_dependency_\imgui\1.88\imstb_truetype.h">
       <Filter>API\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="PathHelper.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Fonts\msyh.ttc">
+    <None Include="..\_dependency_\Fonts\msyh.ttc">
       <Filter>API\ImGui</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="Fonts\simhei.ttf">
+    <Font Include="..\_dependency_\Fonts\simhei.ttf">
       <Filter>API\ImGui</Filter>
+    </Font>
+    <Font Include="Fonts\simhei.ttf">
+      <Filter>资源文件\Fonts</Filter>
     </Font>
   </ItemGroup>
 </Project>

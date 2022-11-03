@@ -59,12 +59,14 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Microsoft.Cpp.Debug.Win32.user.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Microsoft.Cpp.Debug.x64.user.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -76,14 +78,18 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>R:\Z_BACKUP_ORDER\_PROJECT_\CPP\ImGuiDemo\ImGuiDemo\API\imgui-1.88;R:\Z_BACKUP_ORDER\_PROJECT_\CPP\ImGuiDemo\ImGuiDemo\API\glew-2.1.0\include;R:\Z_BACKUP_ORDER\_PROJECT_\CPP\ImGuiDemo\ImGuiDemo\API\glfw-3.3.8.bin.WIN32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>R:\Z_BACKUP_ORDER\_PROJECT_\CPP\ImGuiDemo\ImGuiDemo\API\glfw-3.3.8.bin.WIN32\lib-vc2022;R:\Z_BACKUP_ORDER\_PROJECT_\CPP\ImGuiDemo\ImGuiDemo\API\glew-2.1.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -107,13 +113,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)API\imgui-1.88;$(SolutionDir)API\glew-2.1.0\include;$(SolutionDir)API\glfw-3.3.8.bin.WIN32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)API\glfw-3.3.8.bin.WIN32\lib-vc2022;$(SolutionDir)API\glew-2.1.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glwe32s.lib;glut32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -133,32 +139,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="API\imgui-1.88\imgui.cpp" />
-    <ClCompile Include="API\imgui-1.88\imgui_demo.cpp" />
-    <ClCompile Include="API\imgui-1.88\imgui_draw.cpp" />
-    <ClCompile Include="API\imgui-1.88\imgui_impl_glfw.cpp" />
-    <ClCompile Include="API\imgui-1.88\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="API\imgui-1.88\imgui_tables.cpp" />
-    <ClCompile Include="API\imgui-1.88\imgui_widgets.cpp" />
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui.cpp" />
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_demo.cpp" />
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_draw.cpp" />
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_tables.cpp" />
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Widget.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="API\imgui-1.88\imconfig.h" />
-    <ClInclude Include="API\imgui-1.88\imgui.h" />
-    <ClInclude Include="API\imgui-1.88\imgui_impl_glfw.h" />
-    <ClInclude Include="API\imgui-1.88\imgui_impl_opengl3.h" />
-    <ClInclude Include="API\imgui-1.88\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="API\imgui-1.88\imgui_internal.h" />
-    <ClInclude Include="API\imgui-1.88\imstb_rectpack.h" />
-    <ClInclude Include="API\imgui-1.88\imstb_textedit.h" />
-    <ClInclude Include="API\imgui-1.88\imstb_truetype.h" />
+    <ClInclude Include="..\_dependency_\imgui\1.88\imconfig.h" />
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui.h" />
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui_impl_glfw.h" />
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui_impl_opengl3.h" />
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui_internal.h" />
+    <ClInclude Include="..\_dependency_\imgui\1.88\imstb_rectpack.h" />
+    <ClInclude Include="..\_dependency_\imgui\1.88\imstb_textedit.h" />
+    <ClInclude Include="..\_dependency_\imgui\1.88\imstb_truetype.h" />
+    <ClInclude Include="PathHelper.h" />
     <ClInclude Include="Widget.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Fonts\msyh.ttc" />
+    <None Include="..\_dependency_\Fonts\msyh.ttc" />
   </ItemGroup>
   <ItemGroup>
+    <Font Include="..\_dependency_\Fonts\simhei.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
     <Font Include="Fonts\simhei.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
