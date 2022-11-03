@@ -107,6 +107,8 @@ void Widget::RunWidget()
 	//官方实例
 	ImGui::ShowDemoWindow();
 
+
+	//============================================
 	//自定义窗体绘制
 	{
 		//由bool控制的imgui子窗
@@ -114,9 +116,18 @@ void Widget::RunWidget()
 		{
 			mygui.WidgetTest();
 		}
+
 		//运行 imgui菜单栏子窗
 		mygui.MenuBarTest();
+
+		//高级绘制
+		//mygui.DrawHyperGUI();
+
+		mygui.GetKeyBoardGUI();
+
+		mygui.DragGUI();
 	}
+	//============================================
 
 	//开始整体渲染
 	ImGui::Render();
