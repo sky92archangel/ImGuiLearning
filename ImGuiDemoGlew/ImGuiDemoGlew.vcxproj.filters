@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="API">
+      <UniqueIdentifier>{718574ff-e93c-4e89-acd9-257dd6d07fe6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API\ImGui">
+      <UniqueIdentifier>{2830f7f9-a244-4236-8923-68da5b309c90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\Fonts">
+      <UniqueIdentifier>{0728d052-ac7c-426f-b136-dc72777208bb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui.cpp">
+      <Filter>API\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_demo.cpp">
+      <Filter>API\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_draw.cpp">
+      <Filter>API\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_impl_glfw.cpp">
+      <Filter>API\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_impl_opengl3.cpp">
+      <Filter>API\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_tables.cpp">
+      <Filter>API\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_dependency_\imgui\1.88\imgui_widgets.cpp">
+      <Filter>API\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Widget.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Widget.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PathHelper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_dependency_\imgui\1.88\imconfig.h">
+      <Filter>API\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui.h">
+      <Filter>API\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui_impl_glfw.h">
+      <Filter>API\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui_impl_opengl3.h">
+      <Filter>API\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui_impl_opengl3_loader.h">
+      <Filter>API\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_dependency_\imgui\1.88\imgui_internal.h">
+      <Filter>API\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_dependency_\imgui\1.88\imstb_rectpack.h">
+      <Filter>API\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_dependency_\imgui\1.88\imstb_textedit.h">
+      <Filter>API\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\_dependency_\imgui\1.88\imstb_truetype.h">
+      <Filter>API\ImGui</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Fonts\simhei.ttf">
+      <Filter>资源文件\Fonts</Filter>
+    </Font>
+    <Font Include="..\_dependency_\Fonts\simhei.ttf">
+      <Filter>API\ImGui</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\_dependency_\Fonts\msyh.ttc">
+      <Filter>API\ImGui</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -45,6 +45,11 @@ public:
 	void RunWidget();
 
 	/// <summary>
+	/// 窗口关闭时的处理
+	/// </summary>
+	void CloseWidget();
+
+	/// <summary>
 	/// 初始化imgui
 	/// </summary>
 	/// <param name="HWindows">需要放IMGUI的窗口</param>

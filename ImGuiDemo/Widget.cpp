@@ -121,6 +121,12 @@ void Widget::RunWidget()
 
 }
 
+void Widget::CloseWidget()
+{
+	ImGui_ImplOpenGL3_Shutdown();
+	ImGui_ImplGlfw_Shutdown();
+	ImGui::DestroyContext();
+}
 
 /// <summary>
 /// ≥ı ºªØimgui

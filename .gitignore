@@ -31,3 +31,8 @@
 *.out
 *.app
 /.vs/ImGuiDemo
+/ImGuiDemoGlad/obj/Debug
+/ImGuiDemoGlew/obj
+/ImGuiDemoGlad/bin/Win32/Debug
+/ImGuiDemoGlad/obj/x64/Debug
+/ImGuiDemoGlew/bin
