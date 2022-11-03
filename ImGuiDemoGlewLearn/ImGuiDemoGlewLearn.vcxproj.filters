@@ -22,6 +22,9 @@
     <Filter Include="资源文件\Fonts">
       <UniqueIdentifier>{0728d052-ac7c-426f-b136-dc72777208bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{d26e524b-e7fa-4dc6-8461-c6fb450da31e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\_dependency_\imgui\1.88\imgui.cpp">
@@ -80,14 +83,14 @@
     <ClInclude Include="..\_dependency_\imgui\1.88\imstb_truetype.h">
       <Filter>API\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="ImguiFeature.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="src\Widget.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\PathHelper.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MyRenderGUI.h">
+      <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

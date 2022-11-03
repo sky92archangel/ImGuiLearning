@@ -1,4 +1,5 @@
 #include "Widget.h"
+#include "MyRenderGUI.h"
 #include "PathHelper.h"
 
 /// <summary>
@@ -11,7 +12,7 @@
 /// <param name="window"></param>
 /// <returns></returns>
 GLFWwindow* Widget::CreateWindows(int width, int height, const char* title, GLFWmonitor* monitor, GLFWwindow* window)
-{ 
+{
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -42,7 +43,7 @@ void Widget::WindowSetting(int width, int height)
 		printf("glew failed\n");
 		glfwTerminate();
 		return;
-	} 
+	}
 
 	glViewport(0, 0, width, height);
 	glEnable(GL_DEPTH_TEST);
@@ -60,29 +61,38 @@ void Widget::InitImGui(GLFWwindow* HWindows)
 
 	ImGuiIO& io = ImGui::GetIO();
 	(void)io;
+	_io = &io;
 
 	//风格
 	ImGui::StyleColorsDark();
-	io.ConfigViewportsNoAutoMerge=true;
+	io.ConfigViewportsNoAutoMerge = true;
 
 	//io.Fonts->AddFontFromFileTTF("R:/Z_BACKUP_ORDER/_PROJECT_/CPP/ImGuiDemo/_dependency_/Fonts/simhei.ttf",15.0f,NULL,io.Fonts->GetGlyphRangesChineseFull());
 	//找到当前目录并定位字体文件
-	std::string fontPathStr = GetCWD() + "/Fonts/simhei.ttf";  
-	std::cout << fontPathStr<<std::endl;
-	const char* fontPath = fontPathStr.c_str(); 
-	io.Fonts->AddFontFromFileTTF(fontPath,15.0f,NULL,io.Fonts->GetGlyphRangesChineseFull());
+	std::string fontPathStr = GetCWD() + "/Fonts/simhei.ttf";
+	std::cout << fontPathStr << std::endl;
+	const char* fontPath = fontPathStr.c_str();
+	io.Fonts->AddFontFromFileTTF(fontPath, 15.0f, NULL, io.Fonts->GetGlyphRangesChineseFull());
 	//io.Fonts->AddFontFromMemoryCompressedTTF
+
+	//docking setting 
+	io.ConfigFlags |= ImGuiViewportFlags_NoDecoration;
+	//io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+	//io.ConfigFlags |= ImGuiCol_DockingEmptyBg; 
+	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
+	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+	io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
+	io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
+
+
+	// Setup Platform/Renderer backends
 	ImGui_ImplGlfw_InitForOpenGL(HWindows, true);
 	ImGui_ImplOpenGL3_Init("#version 330");
 
-	//docking setting
-	io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-	io.ConfigFlags |= ImGuiViewportFlags_NoDecoration;  
-	//io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
-	//io.ConfigFlags |= ImGuiCol_DockingEmptyBg;
 
 }
 
+MyGui	mygui = MyGui::MyGui();
 /// <summary>
 /// 运行imgui
 /// </summary>
@@ -97,16 +107,28 @@ void Widget::RunWidget()
 	//官方实例
 	ImGui::ShowDemoWindow();
 
-	//由bool控制的imgui子窗
-	if (editor_Bool)
+	//自定义窗体绘制
 	{
-		WidgetTest();
+		//由bool控制的imgui子窗
+		if (mygui.editor_Bool)
+		{
+			mygui.WidgetTest();
+		}
+		//运行 imgui菜单栏子窗
+		mygui.MenuBarTest();
 	}
-	//运行 imgui菜单栏子窗
-	MenuBarTest();
 
 	//开始整体渲染
-	WidgetRender();
+	ImGui::Render();
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+	if ((*_io).ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+	{
+		GLFWwindow* backup_current_context = glfwGetCurrentContext();
+		ImGui::UpdatePlatformWindows();
+		ImGui::RenderPlatformWindowsDefault();
+		glfwMakeContextCurrent(backup_current_context);
+	}
 
 }
 
@@ -116,46 +138,14 @@ void Widget::CloseWidget()
 	ImGui_ImplGlfw_Shutdown();
 	ImGui::DestroyContext();
 }
-  
 
 
-bool editor_Bool;
-/// <summary>
-/// 菜单栏demo
-/// </summary>
-void MenuBarTest() {
 
-	//create menu bar   菜单栏
-	ImGui::BeginMainMenuBar();
-	ImGui::Text("barName");
-	if (ImGui::BeginMenu(u8"文件")) {
-
-		//editor_Bool =   true;
-		//editor_Bool = ImGui::MenuItem("editor", NULL, editor_Bool, true);
-		if (ImGui::MenuItem("editor", NULL, editor_Bool, true)) {
-			printf("click editor button\n");
-			editor_Bool = !editor_Bool;
-		}
-		ImGui::EndMenu();
-	}
-	ImGui::EndMainMenuBar();
-}
-/// <summary>
-/// 最初text测试demo
-/// </summary>
-void WidgetTest() {
-	//window
-	ImGui::Begin("window");
-	ImGui::Text("imgui window");
-	ImGui::End();
-}
-
-/// <summary>
-/// imgui渲染
-/// </summary>
-void WidgetRender() {
-
-	ImGui::Render();
-	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-}
-
+///// <summary>
+///// imgui渲染
+///// </summary>
+//void WidgetRender() {
+//
+//	ImGui::Render();
+//	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+//}

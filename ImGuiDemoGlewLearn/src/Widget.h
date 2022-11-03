@@ -18,10 +18,15 @@
 #include  <GL/glew.h>
 #define GLFW_STATIC
 #include  <GLFW/glfw3.h> 
+ 
 
 class Widget {
 
+private:
+	ImGuiIO* _io = nullptr;
+
 public:
+
 	/// <summary>
 	/// //创建窗口
 	/// </summary>
@@ -38,17 +43,14 @@ public:
 	/// <param name="width">窗口宽度</param>
 	/// <param name="height">窗口高度</param>
 	void WindowSetting(int width, int height);
-
 	/// <summary>
 	/// 运行窗口
 	/// </summary>
 	void RunWidget();
-
 	/// <summary>
 	/// 窗口关闭时的处理
 	/// </summary>
 	void CloseWidget();
-
 	/// <summary>
 	/// 初始化imgui
 	/// </summary>
