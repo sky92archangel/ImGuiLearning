@@ -30,6 +30,7 @@
 *.exe
 *.out
 *.app
+/.vs
 /.vs/ImGuiDemo
 /ImGuiDemoGlad/obj/Debug
 /ImGuiDemoGlew/obj
@@ -38,3 +39,8 @@
 /ImGuiDemoGlew/bin
 /ImGuiDemoGlewLearn/obj/x64/Debug
 /ImGuiDemoGlewLearn/bin/x64/Debug
+
+ 
+
+
+
